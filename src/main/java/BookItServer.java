@@ -10,11 +10,10 @@ import org.glassfish.jersey.server.ResourceConfig;
 public class BookItServer {
 
 	public static void main(String[] args) throws IOException {
-		final String baseUri = "http://localhost:9998/";
+		final String baseUri = "http://0.0.0.0:9998/";
 		final ResourceConfig rc = new ResourceConfig().packages("org.bookit.server");
 		rc.property("contextConfigLocation", "org.bookit");
 		HttpServer httpServer = GrizzlyHttpServerFactory.createHttpServer(URI.create(baseUri), rc);
-
 		System.out.println(String.format("Jersey app started with WADL available at "
 				+ "%sapplication.wadl\nHit enter to stop it...", baseUri));
 		System.in.read();
